@@ -1,0 +1,93 @@
+/* 
+./ = inne i på samma nivå
+../ navigara ut från en nivå  */
+
+body {
+  background-color: #1b0112;
+  font-family: "Arvo", serif;
+  font-family: "Poppins", sans-serif;
+}
+
+header nav {
+  padding: 0%;
+  padding-top: 1.5em;
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+  text-align: right;
+}
+
+header nav ul li {
+  display: inline;
+  margin-right: 2em;
+}
+header ul li a {
+  position: relative;
+  display: inline;
+  text-decoration: none;
+  font-size: 2rem;
+  color: #9d0b51;
+  padding: 2px 0;
+  transition: 0.5s;
+  font-weight: 200;
+}
+header ul li a::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 3px;
+  top: 100%;
+  left: 0px;
+  background: #ffffff;
+  transition: transform 0.3s;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+header ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.container {
+  margin-top: 15vh;
+  position: relative;
+  width: 60vw;
+  height: 50vh;
+  background-color: #9d0b51;
+  border-radius: 20px;
+}
+.container h1 {
+  color: #ffffff;
+  position: absolute;
+  font-family: "Arvo", serif;
+  font-size: 2.5rem;
+  left: 10%;
+  letter-spacing: 2px;
+}
+.container h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  position: absolute;
+  color: #ffffff;
+  bottom: 40%;
+}
+/* .burger-icon {
+  display: block;
+}
+@media screen and (min-width: 768px) {
+  .burger-icon {
+    display: none;
+  }
+}
+
+header nav {
+  display: none;
+}
+@media screen and (min-width: 768 px) {
+  nav {
+    display: block;
+  }
+} */
+
+#linethrough {
+  text-decoration: line-through;
+}
