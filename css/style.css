@@ -3,13 +3,13 @@
 ../ navigara ut från en nivå  */
 
 body {
-  background-color: #1b0112;
+  background-color: #ff4ac0;
   font-family: "Arvo", serif;
   font-family: "Poppins", sans-serif;
 }
 
 header nav {
-  padding: 0%;
+  padding: 10%;
   padding-top: 1.5em;
   padding-right: 1em;
   padding-bottom: 0.5em;
