@@ -95,6 +95,7 @@ async function getPost(pageValue) {
   result[0].tools.forEach((tool) => {
     const toolImg = document.createElement("img");
     toolImg.setAttribute("src", `/assets/${tool}.svg`);
+    toolImg.setAttribute("alt", tool);
     toolsContainer.append(toolImg);
   });
 
@@ -115,21 +116,67 @@ async function getPost(pageValue) {
   const personasContainer = document.createElement("div");
   personasContainer.classList.add("personas-containter");
 
+  const slider = document.querySelector(".slider");
+  slider.classList.add("slider");
+
+  const personaSlide = document.querySelector(".slides");
+
   result[0].personasImg.forEach((persona) => {
-    personasContainer.append(handleImage(persona.asset._ref));
+    personaSlide.append(handleImage(persona.asset._ref, "slider-image"));
   });
+
+  const sliderImages = document.querySelectorAll(".slider-image");
+  console.log(sliderImages);
+
   project.append(personasContainer);
+  personasContainer.append(slider);
   project.append(handleParagraphs(result[0].koncept, "bodytext"));
 
-  const lofiContainer = document.createElement("div");
-  lofiContainer.classList.add("lofi-containter");
+  // her bygger jeg en variabel som er en div html element
+  const wireframesContainer = document.createElement("div");
+  // class
+  wireframesContainer.classList.add("wireframes-container");
+  //div till mid-fi skisser
+  const wireframesContainer2 = document.createElement("div");
+  wireframesContainer2.classList.add("wireframes-container");
+  // lager tittle som h3
+  const headerContainer = document.createElement("h3");
+  headerContainer.classList.add("h3-container");
+  // skriver jeg inne tittel
+  headerContainer.innerText = "Lo-fi skisser: ";
+
+  const headerContainer2 = document.createElement("h3");
+  headerContainer2.classList.add("h3-container");
+  headerContainer2.innerText = "Mid-fi skisser: ";
+
+  project.append(headerContainer);
+  project.append(wireframesContainer);
+
+  //ny div till hig-fi skisser
+  const wireframesContainer3 = document.createElement("div");
+  wireframesContainer3.classList.add("wireframes-container");
+
+  const headerContainer3 = document.createElement("h3");
+  headerContainer3.classList.add("h3-container");
+  headerContainer3.innerText = "High-fi skisser: ";
 
   result[0].lofiImg.forEach((lofi) => {
-    lofiContainer.append(handleImage(lofi.asset._ref));
+    wireframesContainer.append(handleImage(lofi.asset._ref));
   });
-  project.append(lofiContainer);
+
+  result[0].midfiImg.forEach((midfi) => {
+    wireframesContainer2.append(handleImage(midfi.asset._ref));
+  });
+
+  result[0].hifiImg.forEach((highfi) => {
+    wireframesContainer3.append(handleImage(highfi.asset._ref));
+  });
 
   project.append(handleParagraphs(result[0].body, "bodytext"));
+  project.append(headerContainer2);
+  project.append(wireframesContainer2);
+  project.append(headerContainer3);
+  project.append(wireframesContainer3);
 
   // const body = document.createElement("p");
   // body.innerText = result[0].body;

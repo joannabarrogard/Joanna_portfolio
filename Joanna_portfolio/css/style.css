@@ -1,6 +1,3 @@
-/* 
-./ = inne i på samma nivå
-../ navigara ut från en nivå  */
 html {
   font-size: 18px;
   scroll-behavior: smooth;
@@ -250,6 +247,7 @@ body {
 
 .burger-icon {
   display: block;
+  background-color: none;
 }
 .burger-icon {
   padding: 0.8rem;
@@ -473,18 +471,17 @@ footer {
 
 .personas-containter {
   width: 100%;
-  background-color: #9d0b51;
   height: auto;
   display: flex;
-  flex-flow: row wrap;
+  justify-content: center;
 }
 
-.personas-containter img {
+/* .personas-containter img {
   width: 400px;
-}
+} */
 
-.lofi-containter {
-  margin-top: 6rem;
+.wireframes-container {
+  margin-top: 4rem;
   width: 100%;
   background-color: #9d0b51;
   padding: 1.5rem;
@@ -495,7 +492,7 @@ footer {
   row-gap: 60px;
 }
 
-.lofi-containter img {
+.wireframes-container img {
   width: 200px;
 }
 .bold {
@@ -512,6 +509,15 @@ footer {
   font-family: "Arvo", serif;
   font-size: 1.7rem;
   letter-spacing: 1px;
+}
+
+.h3-container {
+  color: #e44ec3;
+  font-family: "Arvo", serif;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 8rem;
 }
 
 .introtext {
@@ -561,3 +567,87 @@ footer {
 .bodytext .h4 {
   font-weight: bold;
 }
+
+.slider {
+  height: auto;
+  text-align: center;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #e44ec3;
+  margin: 2rem 0 1rem 0;
+  padding: 1rem 0;
+}
+@media screen and (max-width: 600px) {
+  .slider {
+    background-color: transparent;
+  }
+}
+.slides {
+  display: flex;
+  flex-flow: column;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 1rem;
+}
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* .slides img {
+  background-color: #e44ec3;
+  display: flex;
+} */
+.slides > img {
+  /* scroll-snap-align: start; */
+  width: 50%;
+  flex-shrink: 0;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 600px) {
+  .slides > img {
+    /* scroll-snap-align: start; */
+    width: 80%;
+  }
+}
+.slider > a {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: white;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 0 0.5rem 0;
+  position: relative;
+}
+.slider > a:active {
+  top: 1px;
+  color: #1c87c9;
+}
+.slider > a:focus {
+  background: #eee;
+}
+/* Don't need button navigation */
+/* @supports (scroll-snap-type) {
+  .slider > a {
+    display: none;
+  }
+} */
